@@ -12,7 +12,7 @@ const SinglePortfolio = ({ portfolio }: { portfolio: Portfolio }) => {
   return (
     <Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-2 h-fit bg-white dark:bg-gray-900 border border-gray-200/50 dark:border-gray-700/50 rounded-xl">
       <CardHeader className="p-0">
-        <div className="relative aspect-[4/3] md:aspect-video overflow-hidden rounded-t-xl">
+        <div className="relative aspect-[3/2] md:aspect-video overflow-hidden rounded-t-xl">
           <Image 
             src={image} 
             alt={title}
@@ -27,7 +27,7 @@ const SinglePortfolio = ({ portfolio }: { portfolio: Portfolio }) => {
         </div>
       </CardHeader>
       
-      <CardContent className="p-4 md:p-5 space-y-3">
+      <CardContent className="p-3 md:p-5 space-y-2 md:space-y-3">
         <h3 className="text-sm md:text-base lg:text-lg font-semibold leading-tight line-clamp-2 group-hover:text-primary transition-all duration-200 text-gray-900 dark:text-gray-100">
           <Link href="/portfolio-details" className="hover:underline">
             {title}
@@ -39,7 +39,7 @@ const SinglePortfolio = ({ portfolio }: { portfolio: Portfolio }) => {
         </p>
       </CardContent>
       
-      <CardFooter className="p-4 md:p-5 pt-0 flex items-center justify-between border-t border-gray-100/50 dark:border-gray-800/50">
+      <CardFooter className="p-3 md:p-5 pt-0 flex items-center justify-between border-t border-gray-100/50 dark:border-gray-800/50">
         <div className="flex items-center space-x-3">
           <Avatar className="h-8 w-8 md:h-9 md:w-9 ring-2 ring-gray-100 dark:ring-gray-800">
             <AvatarImage src={author.image} alt={author.name} />

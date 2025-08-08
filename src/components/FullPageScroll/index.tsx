@@ -210,7 +210,12 @@ const FullPageScroll = ({ children }: FullPageScrollProps) => {
             if (el) pagesRef.current[index] = el;
           }}
           className="fullpage-section h-screen w-full flex-shrink-0"
-          style={{ scrollSnapAlign: 'start' }}
+          style={{ 
+            scrollSnapAlign: 'start',
+            height: '100vh',
+            minHeight: '100vh',
+            maxHeight: '100vh'
+          }}
         >
           {child}
         </div>

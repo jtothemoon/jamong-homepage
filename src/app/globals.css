@@ -194,6 +194,11 @@ layer(base);
     @apply min-h-screen w-full flex items-center justify-center relative overflow-hidden;
   }
   
+  /* 모바일에서 하단 네비게이션을 위한 패딩 */
+  .fullpage-section {
+    @apply pb-24 lg:pb-0;
+  }
+  
   .section-background {
     @apply absolute inset-0 opacity-20;
   }

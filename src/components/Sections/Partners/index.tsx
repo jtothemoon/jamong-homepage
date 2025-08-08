@@ -24,8 +24,8 @@ const Partners = () => {
         <div className="absolute bottom-1/2 right-1/3 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container w-full mx-auto px-4 py-4 overflow-visible relative z-10">
-        <div className="text-center space-y-2 mb-8 lg:mb-10">
+      <div className="container w-full mx-auto px-4 pt-20 pb-2 overflow-visible relative z-10">
+        <div className="text-center space-y-1 mb-4 lg:mb-10">
           <Badge variant="outline" className="mx-auto text-xs dark:text-white">
             Partners
           </Badge>
@@ -46,7 +46,7 @@ const Partners = () => {
                 key={partner.id}
                 className="flex items-center justify-center p-2 sm:p-3 bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group border border-gray-100 dark:border-gray-800"
               >
-                <div className="relative w-full h-16 flex items-center justify-center">
+                <div className="relative w-full h-12 sm:h-16 flex items-center justify-center">
                   {imageErrors.includes(partner.id) ? (
                     // Fallback UI when image fails to load
                     <div className="flex items-center justify-center text-xs text-gray-500 dark:text-gray-400 font-medium">
@@ -69,7 +69,7 @@ const Partners = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-6 sm:mt-8 max-w-xl mx-auto px-4">
+        <div className="mt-4 sm:mt-8 max-w-xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
             <div className="space-y-1">
               <div className="text-lg sm:text-xl font-bold text-primary">30+</div>
@@ -91,8 +91,8 @@ const Partners = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-8 sm:mt-10 text-center px-4">
-          <p className="text-sm sm:text-base text-body-color dark:text-body-color-dark mb-3 sm:mb-4">
+        <div className="mt-4 sm:mt-10 text-center px-4">
+          <p className="text-sm sm:text-base text-body-color dark:text-body-color-dark mb-2 sm:mb-4">
             함께 성장할 파트너를 찾고 계신가요?
           </p>
           <a

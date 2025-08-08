@@ -33,7 +33,8 @@
   /* 풀페이지 스크롤 컨테이너 */
   .fullpage-container {
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .fullpage-scroll {
@@ -44,12 +45,16 @@
   }
   
   .fullpage-section {
-    height: 100vh;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     scroll-snap-align: start;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 }
 

@@ -18,8 +18,8 @@ const Portfolio = () => {
         <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container w-full mx-auto px-4 py-4 overflow-visible relative z-10">
-        <div className="text-center space-y-1 mb-6 lg:mb-8">
+      <div className="container w-full mx-auto px-4 pt-24 pb-2 overflow-visible relative z-10">
+        <div className="text-center space-y-1 mb-2 lg:mb-8">
           <Badge variant="outline" className="mx-auto text-xs dark:text-white">
             Portfolio
           </Badge>
@@ -47,7 +47,7 @@ const Portfolio = () => {
               dragFree: false,
               skipSnaps: false,
             }}
-            className="w-full py-8 [&_.embla]:overflow-visible [&_.embla__container]:overflow-visible"
+            className="w-full py-2 lg:py-8 [&_.embla]:overflow-visible [&_.embla__container]:overflow-visible"
           >
             <CarouselContent className="-ml-4 md:-ml-6 overflow-visible">
               {portfolioData.map((portfolio) => (
@@ -65,7 +65,7 @@ const Portfolio = () => {
           </Carousel>
 
           {/* Mobile swipe hint */}
-          <div className="text-center mt-2 md:hidden dark:text-gray-400">
+          <div className="text-center mt-1 md:hidden dark:text-gray-400">
             <p className="text-xs text-muted-foreground dark:text-body-color-dark">👈 Swipe to see more projects • Auto-playing</p>
           </div>
         </div>

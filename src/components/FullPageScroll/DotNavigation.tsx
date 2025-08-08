@@ -45,7 +45,7 @@ const DotNavigation = ({ totalPages, currentPage, onPageChange }: DotNavigationP
       </div>
 
       {/* 모바일 닷 네비게이션 - 하단 중앙 */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-[70] lg:hidden">
+      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[70] lg:hidden">
         <div className="flex space-x-3 bg-background/80 backdrop-blur-sm rounded-full px-4 py-3 border shadow-lg">
           {Array.from({ length: totalPages }, (_, index) => (
             <button
