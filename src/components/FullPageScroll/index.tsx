@@ -50,10 +50,13 @@ const FullPageScroll = ({ children }: FullPageScrollProps) => {
       });
     }
 
-    // 스크롤 애니메이션 완료 후 isScrolling 해제
+    // 안드로이드에서 더 빠른 애니메이션
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const animationDuration = isAndroid ? 800 : 1000;
+    
     setTimeout(() => {
       setIsScrolling(false);
-    }, 1000);
+    }, animationDuration);
   }, [totalPages, isScrolling, notifyPageChange]);
 
   // 휠 이벤트 핸들러 (데스크톱)
@@ -91,7 +94,10 @@ const FullPageScroll = ({ children }: FullPageScrollProps) => {
     
     touchEndY.current = e.changedTouches[0].clientY;
     const diff = touchStartY.current - touchEndY.current;
-    const minSwipeDistance = 80; // 모바일에서 더 긴 스와이프 거리 요구
+    
+    // 안드로이드/갤럭시 최적화: 더 민감한 터치 감지
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const minSwipeDistance = isAndroid ? 50 : 80;
 
     if (Math.abs(diff) > minSwipeDistance) {
       if (diff > 0) {
@@ -157,6 +163,23 @@ const FullPageScroll = ({ children }: FullPageScrollProps) => {
       scrollToPage(page);
     }
   }, [totalPages, scrollToPage]);
+
+  // 뷰포트 높이 동적 계산 (카카오톡/인앱 브라우저 대응)
+  useEffect(() => {
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
+    
+    return () => {
+      window.removeEventListener('resize', setVH);
+      window.removeEventListener('orientationchange', setVH);
+    };
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;

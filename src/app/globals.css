@@ -107,6 +107,16 @@ layer(base);
     scroll-behavior: smooth;
   }
   
+  /* 카카오톡/인앱 브라우저 뷰포트 해킹 */
+  html, body {
+    height: 100%;
+    height: 100vh;
+    height: 100dvh;
+    /* 인앱 브라우저 대응 */
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+  }
+  
   body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
