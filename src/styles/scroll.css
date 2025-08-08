@@ -33,6 +33,7 @@
   /* 풀페이지 스크롤 컨테이너 */
   .fullpage-container {
     height: 100vh;
+    height: 100dvh; /* 동적 뷰포트 높이 사용 */
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -46,8 +47,11 @@
   
   .fullpage-section {
     height: 100vh !important;
+    height: 100dvh !important; /* 동적 뷰포트 높이 사용 */
     min-height: 100vh !important;
+    min-height: 100dvh !important;
     max-height: 100vh !important;
+    max-height: 100dvh !important;
     width: 100%;
     display: flex;
     align-items: center;
@@ -111,6 +115,14 @@
   .fullpage-scroll {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: none;
+  }
+  
+  .fullpage-container {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: hidden;
+    /* 갤럭시/안드로이드 터치 최적화 */
+    touch-action: pan-y;
   }
   
   .scroll-dot {
