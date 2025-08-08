@@ -1,0 +1,145 @@
+/* 풀페이지 스크롤 관련 스타일 */
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-snap-y {
+    scroll-snap-type: y mandatory;
+  }
+  
+  .scroll-snap-start {
+    scroll-snap-align: start;
+  }
+  
+  .scroll-snap-center {
+    scroll-snap-align: center;
+  }
+  
+  .scroll-snap-end {
+    scroll-snap-align: end;
+  }
+  
+  /* 스크롤바 숨기기 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* 풀페이지 스크롤 컨테이너 */
+  .fullpage-container {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .fullpage-scroll {
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  
+  .fullpage-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+  }
+}
+
+/* 닷 네비게이션 애니메이션 */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 스크롤 인디케이터 */
+.scroll-indicator {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scroll-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.scroll-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.scroll-dot.active {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* 모바일 터치 최적화 */
+@media (max-width: 768px) {
+  .fullpage-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+  
+  .scroll-dot {
+    width: 16px;
+    height: 16px;
+    touch-action: manipulation;
+  }
+  
+  /* 모바일에서 더 큰 터치 영역 제공 */
+  .scroll-indicator {
+    bottom: 2rem;
+    top: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 9999px;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+}
+
+/* 다크 모드 지원 */
+.dark .scroll-dot {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .scroll-dot:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.dark .scroll-dot.active {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+} 
